@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="website icon" type="jpg" href="Image/logo_aether.jpg">
+  <title>Explore - Aether Audio</title>
+  <link rel="stylesheet" href="mainstyle.css">
+</head>
+<header>
+  <div class="efekmenutiga">
+    <a class="menutiga"> ☰ </a>
+    <div class="style-menutiga">
+      <a href="uaslatian(2).html" class="button"><img src="Image/01_beranda.jpg"></a>
+      <a href="putar_musik.html" class="button"><img src="Image/02_daftarlagu.jpg"></a>
+      <a href="playlist_menu.html" class="button"><img src="Image/03_playlist.jpg"></a>
+      <a href="lainnya.html" class="button"><img src="Image/04_lainnya.jpg"></a>
+      <a href="loading_logout.html" class="button"><img src="Image/05_keluaraplikasi.jpg"></a>
+      <div style="color: white; font-size: 16px; position: absolute; z-index: 100; top: 530px; left: 30px;">𝚃𝚘𝚝𝚊𝚕 𝚄𝚜𝚎𝚛𝚜ㅤ ㅤㅤ : 6.374</div>
+      <div class="looping-number" data-number="1"></div>
+    </div>
+  </div>
+  <div class="judulutama">𝐃𝐚𝐟𝐭𝐚𝐫 𝐋𝐚𝐠𝐮</div>
+</header>
+<body>
+  <img src="Image/stars_animation.gif" class="fotostars_daftarlagu">
+  <div  id="container_style_menuutama">
+      <div class="daftar-lagu">
+            <img src="Image/background_main.jpg" alt="fotodaftarbackground" class="fotodaftarbackground">
+            <ul id="songsList">
+            </ul>
+      </div>
+    <div class="pemutar-lagu">
+        <div id="songDetails">
+            <img src="Image/background_main_blacktransparent.png" alt="fotolagubackground" class="fotolagubackground">
+            <img src="Image/stars_animation.gif" class="fotostars">
+
+            <img style="top: -500px; width: 1380px; height: auto ; animation: floatingalbum 30s infinite; position: absolute; z-index: 85;" id="albumPhoto2" src="" alt="">
+            <div id="musicName"></div>
+            <div id="copyrightlogoplayer">𝙰𝚎𝚝𝚑𝚎𝚛 𝙰𝚞𝚍𝚒𝚘</div>
+            <p id="musicArtist"></p>
+            <img src="Image/logo_player.jpg" alt="logoplayer" class="logoplayer">
+            <img class="fotolagu" id="albumPhoto" src="" alt="">
+            <audio id="audioPlayer" controls></audio>
+                <div style="display: flex; width: 100px; height: 100px; background-color: black; right: -70px; bottom: 160px ; position: absolute; z-index: 400;"></div>
+                <div style="display: flex; width: 60px; height: 100px; background-color: black; left: 550px; bottom: 170px ; position: absolute; z-index: 400;"></div>
+                <div style="font-size: 20px; left: 622px; bottom: 250px; position: absolute; z-index: 500;">♡ ㅤ ㅤⓘㅤㅤ ⇛ㅤㅤ ⋯ ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ⟳ㅤㅤㅤ⇉</div>
+                <button class="tombol_prev" id="prevBtn" onclick="prevSong()">❙◀</button>
+                <button class="tombol_slowup" id="slowerBtn" onclick="slowDown()">◁◁</button>
+                <button class="tombol_playpause" id="playPauseBtn" onclick="togglePlayPause()">❙❙</button>
+                <button class="tombol_speedup" id="fasterBtn" onclick="speedUp()">▷▷</button>
+                <button class="tombol_next" id="nextBtn" onclick="nextSong()">▶❙</button>
+
+
+        </div>
+    </div>
+  </div>
+  <script src="mainscript.js"></script>
+</body>
+</html>

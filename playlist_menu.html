@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="mainstyle.css">
+    <link rel="website icon" type="jpg" href="Image/logo_aether.jpg">
+    <title>Explore - Aether Audio</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    .parent {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 100vh;
+    }
+
+    .nav-left {
+        width: 20%;
+        background-color: rgb(25, 56, 18);
+        height: 100%;
+        display: flex;
+        padding: 30px;
+        box-sizing: border-box;
+        color: white;
+    }
+
+    .container {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        padding: 20px;
+        box-sizing: border-box;
+        flex-direction: column;
+    }
+
+    .judul {
+        width: 100%;
+        height: 70px;
+        padding-left: 18px;
+    }
+
+    .judul h1 {
+
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
+    .playlist-menu {
+        width: 100%;
+        height: auto;
+        border-radius: 25px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .card-playlist {
+        width: 180px;
+        height: 200px;
+        border-radius: 5px;
+        overflow: hidden;
+        display: flex;
+        margin: 20px;
+        flex-direction: column;
+        cursor: pointer;
+    }
+
+    .img-playlist {
+        width: 100%;
+        overflow: hidden;
+        height: 60%;
+    }
+
+    .img-playlist img {
+        object-fit: cover;
+        width: 200px;
+        height: 100%;
+    }
+
+    .playlist-details {
+        width: 100%;
+        height: 40%;
+        background-color: black;
+        padding: 10px;
+        box-sizing: border-box;
+        color: white;
+    }
+
+    .play {
+        width: 50px;
+        height: 50px;
+        background-color: yellow;
+        position: fixed;
+        z-index: 2;
+        margin-top: 98px;
+        margin-left: 120px;
+        border-radius: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        opacity: 0;
+        transition: .2s;
+    }
+
+    .play:hover {
+        transform: translateY(-5px);
+    }
+
+    .card-playlist:hover>.play {
+        opacity: 100%;
+    }
+
+    .playlist-title {
+        position: fixed;
+        margin-top: -90px;
+        margin-left: 20px;
+        z-index: 2;
+    }
+
+
+
+    .name-playlist {
+        font-family: 'Courier New', Courier, monospace;
+    }
+
+    .public {
+        color: grey;
+        position: relative;
+        top: 20px;
+    }
+</style>
+<header>
+    <div class="efekmenutiga">
+      <a class="menutiga"> ☰ </a>
+      <div class="style-menutiga">
+        <a href="uaslatian(2).html" class="button"><img src="Image/01_beranda.jpg"></a>
+        <a href="putar_musik.html" class="button"><img src="Image/02_daftarlagu.jpg"></a>
+        <a href="playlist_menu.html" class="button"><img src="Image/03_playlist.jpg"></a>
+        <a href="lainnya.html" class="button"><img src="Image/04_lainnya.jpg"></a>
+        <a href="loading_logout.html" class="button"><img src="Image/05_keluaraplikasi.jpg"></a>
+        <div style="color: white; font-size: 16px; position: absolute; z-index: 100; top: 530px; left: 30px;">𝚃𝚘𝚝𝚊𝚕 𝚄𝚜𝚎𝚛𝚜ㅤ ㅤㅤ : 6.374</div>
+      <div class="looping-number" data-number="1"></div>
+    </div>
+    </div>
+    <div class="judulutama">𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭</div>
+  </header>
+
+<body>
+    <div class="parent">
+        <div class="nav-left">
+            <h1>Title</h1>
+        </div>
+        <div class="container">
+            <div class="judul">
+                <h1 style="color: transparent;">Playlist</h1>
+            </div>
+            <img src="Image/background_main.jpg" alt="fotolagubackground" style="opacity: 80%; position: absolute; z-index: -1;">
+
+            <div class="playlist-menu">
+                <div class="card-playlist cp1">
+                    <div class="img-playlist">
+                        <img src="Image/download.jpeg" alt="" srcset="">
+                    </div>
+                    <div class="play">▶</div>
+                    <div class="playlist-details">
+                        <p class="name-playlist">Favourit</p>
+                        <p class="public">Public</p>
+                    </div>
+                </div>
+                <div class="card-playlist cp1">
+                    <div class="img-playlist">
+                        <img src="Image/Dream World_ Surreal Neon Environment (1).jpeg" alt="" srcset="">
+                    </div>
+                    <div class="play">▶</div>
+                    <div class="playlist-details">
+                        <p class="name-playlist">Soul</p>
+                        <p class="public">Public</p>
+                    </div>
+                </div>
+                <div class="card-playlist cp1">
+                    <div class="img-playlist">
+                        <img src="Image/Neo Hong Kong (1).jpeg" alt="" srcset="">
+                    </div>
+                    <div class="play">▶</div>
+                    <div class="playlist-details">
+                        <p class="name-playlist">Soft Music</p>
+                        <p class="public">Private</p>
+                    </div>
+                </div>
+                <div class="card-playlist cp1">
+                    <div class="img-playlist">
+                        <img src="Image/Neon Shallows Wallpaper, HD Artist 4K Wallpapers, Images and Background - Wallpapers Den.jpeg"
+                            alt="" srcset="">
+                    </div>
+                    <div class="play">▶</div>
+                    <div class="playlist-details">
+                        <p class="name-playlist">Metal</p>
+                        <p class="public">Private</p>
+                    </div>
+                </div>
+                <div class="card-playlist cp1">
+                    <div class="img-playlist">
+                        <img src="Image/Which _We Bare Bears_ Bear Are You Most Like_.jpeg" alt="" srcset="">
+                    </div>
+                    <div class="play">▶</div>
+                    <div class="playlist-details">
+                        <p class="name-playlist">Girl</p>
+                        <p class="public">Public</p>
+                    </div>
+                </div>
+                <div class="card-playlist cp1">
+                    <div class="img-playlist">
+                        <img src="Image/4K Anime Japanese Mount Fuji and Sunset Desktop Wallpaper.jpeg" alt="" srcset="">
+                    </div>
+                    <div class="play">▶</div>
+                    <div class="playlist-details">
+                        <p class="name-playlist">Lofi Hip-hop</p>
+                        <p class="public">Private</p>
+                    </div>
+                </div>
+                <div class="card-playlist cp1">
+                    <div class="img-playlist">
+                        <img src="Image/4K wallpaper ·① Download free cool  wallpapers for desktop, mobile, laptop in any resolution_ desktop, Android, iPhone, iPad 1920x1080, 1600x900, 1280x900, 1440x900 etc_ WallpaperTag.jpeg"
+                            alt="" srcset="">
+                    </div>
+                    <div class="play">▶</div>
+                    <div class="playlist-details">
+                        <p class="name-playlist">Night</p>
+                        <p class="public">Private</p>
+                    </div>
+                </div>
+                <div class="card-playlist cp1">
+                    <div class="img-playlist">
+                        <img src="Image/50 Beautiful High-Resolution 4K Desktop Wallpapers.jpeg" alt="" srcset="">
+                    </div>
+                    <div class="play">▶</div>
+                    <div class="playlist-details">
+                        <p class="name-playlist">Blue</p>
+                        <p class="public">Public</p>
+                    </div>
+                </div>
+                <div class="card-playlist cp1">
+                    <div class="img-playlist">
+                        <img src="Image/background1_opening.jpg" alt="" srcset="">
+                    </div>
+                    <div class="play">▶</div>
+                    <div class="playlist-details">
+                        <p class="name-playlist">My Playlist</p>
+                        <p class="public">Private</p>
+                    </div>
+                </div>
+                <div class="card-playlist cp1">
+                    <div class="img-playlist">
+                        <img src="Image/Neo Hong Kong (1).jpeg" alt="" srcset="">
+                    </div>
+                    <div class="play">▶</div>
+                    <div class="playlist-details">
+                        <p class="name-playlist">Dark Soul</p>
+                        <p class="public">Private</p>
+                    </div>
+                </div>
+                <div class="card-playlist cp1">
+                    <div class="img-playlist">
+                        <img src="Image/Batman Wallpaper - Wallpaper Sun.jpeg" alt="" srcset="">
+                    </div>
+                    <div class="play">▶</div>
+                    <div class="playlist-details">
+                        <p class="name-playlist">Darknight</p>
+                        <p class="public">Private</p>
+                    </div>
+                </div>
+                <div class="card-playlist cp1">
+                    <div class="img-playlist">
+                        <img src="Image/Dream World_ Surreal Neon Environment.jpeg"
+                            alt="" srcset="">
+                    </div>
+                    <div class="play">▶</div>
+                    <div class="playlist-details">
+                        <p class="name-playlist">Uchiha</p>
+                        <p class="public">Private</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="mainscript.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Musik Terpopuler</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: black;
+        }
+
+        header {
+            background-color: green;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+
+        section {
+            margin: 20px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+
+        section.active {
+            display: block;
+        }
+
+        h2 {
+            color: #343a40;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px 0;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        li:hover {
+            color: #007BFF;
+        }
+
+        .genre-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .genre {
+            height: auto;
+            width: 30%;
+            margin: 10px;
+            overflow: hidden;
+            position: relative;
+            border-radius: 4px;
+            transition: transform 0.3s; 
+        }
+
+        .genre img {
+            width: 90%;
+            height: 100%;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 90%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+            border-radius: 8px;
+        }
+
+        .genre:hover {
+            transform: scale(1.05); 
+        }
+
+        .genre:hover .overlay {
+            opacity: 1;
+        }
+
+        .overlay h3 {
+            color: white;
+            margin: 0;
+            font-size: 1.5em;
+        }
+
+        #pop {
+            background-color: #f8d7da; 
+            color: #721c24; 
+        }
+
+        #rock {
+            background-color: #d4edda; 
+            color: #155724; 
+        }
+
+        #jazz {
+            background-color: #cce5ff; 
+            color: #004085; 
+        }
+
+        #kpop {
+            background-color: #f2e3f5; 
+            color: #563d7c; 
+        }
+        .fotodaftarbackground {
+         opacity: 0.9; /* Menggunakan nilai antara 0 dan 1 untuk tingkat transparansi */
+         margin: 0;
+         padding: 0;
+         position: fixed; /* Menggunakan fixed agar tetap di tempat ketika di-scroll */
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         z-index: -10;
+}
+    </style>
+</head>
+
+<body>
+    <img src="Image/gambar.jpeg" alt="fotodaftarbackground" class="fotodaftarbackground">
+    <header>
+        <h1>Genre Lagu</h1>
+    </header>
+    <div class="genre-container">
+        <div class="genre" onclick="showGenre('pop')">
+            <img src="Image/pop.jpg" alt="Pop Music">
+            <div class="overlay">
+                <h3>Pop</h3>
+            </div>
+        </div>
+
+        <div class="genre" onclick="showGenre('rock')">
+            <img src="Image/rock.jpg" alt="Rock Music">
+            <div class="overlay">
+                <h3>Rock</h3>
+            </div>
+        </div>
+
+        <div class="genre" onclick="showGenre('jazz')">
+            <img src="Image/jazz.jpg" alt="Jazz Music">
+            <div class="overlay">
+                <h3>Jazz</h3>
+            </div>
+        </div>
+
+        <div class="genre" onclick="showGenre('kpop')">
+            <img src="Image/kpop.jpg" alt="Kpop Music">
+            <div class="overlay">
+                <h3>Kpop</h3>
+            </div>
+        </div>
+    </div>
+
+    <section id="pop" class="active">
+        <h2>Pop Songs</h2>
+        <ul id="popList">
+            <li onclick="playAudio('Music/shape-of-you.mp3', 'popAudio')">Shape of You - Ed Sheeran</li>
+            <li onclick="playAudio('Music/bad-romance.mp3', 'popAudio')">Bad Romance - Lady Gaga</li>
+            <li onclick="playAudio('Music/happy.mp3', 'popAudio')">Happy - Pharrell Williams</li>
+        </ul>
+    </section>
+
+    <section id="rock">
+        <h2>Rock Songs</h2>
+        <ul id="rockList">
+            <li onclick="playAudio('Music/londoncalling.mp3', 'rockAudio')">London Calling - London The Clash</li>
+            <li onclick="playAudio('Music/bohemianrhapsody.mp3', 'rockAudio')">Bohemian Rhapsody - Queen</li>
+            <li onclick="playAudio('Music/hotelcalifornia.mp3', 'rockAudio')">Hotel California - Eagles</li>
+        </ul>
+    </section>
+
+    <section id="jazz">
+        <h2>Jazz Songs</h2>
+        <ul id="jazzList">
+            <li onclick="playAudio('Music/penjaga.mp3', 'jazzAudio')">Penjaga Hati - Nadhif Basalamah</li>
+            <li onclick="playAudio('Music/sowhat.mp3', 'jazzAudio')">So What - Miles Davis</li>
+            <li onclick="playAudio('Music/autumnleaves.mp3', 'jazzAudio')">Autumn Leaves - Nat King Cole</li>
+        </ul>
+    </section>
+
+    <section id="kpop">
+        <h2>Kpop Songs</h2>
+        <ul id="kpopList">
+            <li onclick="playAudio('Music/bts.mp3', 'kpopAudio')">Dynamite - BTS</li>
+            <li onclick="playAudio('Music/asifityourlast.mp3', 'kpopAudio')">As If It's Your Last - BLACKPINK</li>
+            <li onclick="playAudio('Music/saveme.mp3', 'kpopAudio')">Save Me - BTS</li>
+        </ul>
+    </section>
+
+    <audio id="popAudio"></audio>
+    <audio id="rockAudio"></audio>
+    <audio id="jazzAudio"></audio>
+    <audio id="kpopAudio"></audio>
+
+    <script>
+        let currentAudio = null;
+    
+        function showGenre(genre) {
+            // Menampilkan daftar lagu yang sesuai dengan genre
+            const genreSection = document.getElementById(genre);
+            genreSection.classList.add('active');
+    
+            // Scroll ke bagian yang sesuai dengan genre
+            genreSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    
+        function playAudio(audioFile, audioId) {
+            const audio = document.getElementById(audioId);
+    
+            if (currentAudio) {
+                // Jika ada audio yang sedang diputar, hentikan pemutaran
+                currentAudio.pause();
+            }
+    
+            // Memeriksa apakah audio yang akan diputar adalah yang sama dengan yang sedang diputar
+            currentAudio = (currentAudio !== audio) ? audio : null;
+    
+            if (currentAudio) {
+                // Jika audio yang diklik bukan yang sedang diputar, putar audio
+                currentAudio.src = audioFile;
+                currentAudio.play();
+            }
+        }
+    </script>
+</body>
+</html>

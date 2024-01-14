@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Song Recommendations</title>
+    <style>
+        header {
+            font-style: oblique;
+            background-color:black;
+            color: rgb(180, 171, 171);
+            padding: 15px;
+            text-align: center;
+        }
+        
+        body {
+        
+            font-family: 'Arial', sans-serif;
+            background-color: black;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 300px;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .container:hover {
+            background-color: #bbbab4e8;
+        }
+
+        h1 {
+            color: #1db954;
+        }
+
+        .song {
+            border-bottom: 2px solid #1db954;
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-bottom: 5px;
+        }
+
+        .song:hover {
+            background-color: #dddd11;
+        }
+
+        .song:last-child {
+            border-bottom: none;
+        }
+
+        .cover img {
+            display: none;
+        }
+
+        .control-buttons {
+            margin-top: 20px;
+        }
+
+        .currently-playing {
+            margin-top: 20px;
+        }
+
+        #currentSong {
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            font-style: italic;
+        }
+        .fotodaftarbackground {
+         opacity: 0.9; /* Menggunakan nilai antara 0 dan 1 untuk tingkat transparansi */
+         margin: 0;
+         padding: 0;
+         position: fixed; /* Menggunakan fixed agar tetap di tempat ketika di-scroll */
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         z-index: -10;
+}
+    </style>
+</head>
+<body>
+    <img src="Image/gambar.jpeg" alt="fotodaftarbackground" class="fotodaftarbackground">
+    
+   <div class="container">
+        <h1>Rekomendasi Lagu</h1>
+        <div id="songList"></div>
+        <div class="currently-playing">
+            <h3> <i> Now Playing: </i> </h3>
+            <div id="currentSong"></div>
+        </div>
+        <div class="control-buttons">
+            <button id="playButton">Play</button>
+            <button id="stopButton">Stop</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const songListContainer = document.getElementById('songList');
+            const audioPlayer = new Audio();
+            const playButton = document.getElementById('playButton');
+            const stopButton = document.getElementById('stopButton');
+            
+            const songs = [
+                { title: 'Enchanted - Taylor Swift', audio: 'Music/Enchanted.mp3' },
+                { title: 'Yellow - Coldplay', audio: 'Music/yellow.mp3' },
+                { title: 'Beautiful Day - U2', audio: 'Music/beautifulday.mp3' },
+                { title: 'My Heart Will Go On-Celine Dion', audio: 'Music/titanic.mp3' },
+                { title: 'The Nights-Avicii', audio: 'Music/avicii.mp3' },
+            ];
+
+            function playSong(song) {
+                document.getElementById('currentSong').innerText = song.title;
+                alert(`Now playing: ${song.title}`);
+                audioPlayer.src = song.audio;
+                audioPlayer.play();
+            }
+
+            function stopSong() {
+                audioPlayer.pause();
+                audioPlayer.currentTime = 0;
+            }
+
+            songs.forEach((song, index) => {
+                const songElement = document.createElement('div');
+                songElement.classList.add('song');
+                songElement.innerText = song.title;
+                songElement.addEventListener('click', () => {
+                    playSong(song);
+                });
+
+                songListContainer.appendChild(songElement);
+            });
+
+            playButton.addEventListener('click', () => {
+                playSong(songs[0]); // Pemutaran otomatis lagu pertama saat tombol "Play" ditekan
+            });
+
+            stopButton.addEventListener('click', () => {
+                stopSong();
+            });
+        });
+    </script>
+</body>
+</html>
